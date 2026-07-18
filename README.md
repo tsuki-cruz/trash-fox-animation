@@ -1,7 +1,5 @@
 # Trash Fox Animation
 
-# Trash Fox Animation
-
 A standalone web animation extracted from the Tsuki Cruz universe and preserved as an independent portfolio artifact.
 
 ![Trash Fox](trash-fox-full-rez.png)
