@@ -1,72 +1,85 @@
 # Trash Fox Animation
 
-A standalone web animation featuring the Trash Fox character from the Tsuki Cruz project.
+# Trash Fox Animation
 
-Originally developed as part of the Tsuki Cruz website, this animation was extracted into its own self-contained project to showcase the character, layered animation techniques, and supporting front-end engineering independent of Shopify.
+A standalone web animation extracted from the Tsuki Cruz universe and preserved as an independent portfolio artifact.
+
+![Trash Fox](trash-fox-full-rez.png)
 
 ---
 
 ## Overview
 
-Trash Fox is built as a layered composition rather than a single animated image.
+Originally developed as part of the **Tsuki Cruz** universe, this repository documents the extraction of the Trash Fox animation into an independent portfolio artifact, preserving its original visual behavior while presenting it as a self-contained digital exhibit.
 
-Individual PNG assets are stacked to create the complete character while CSS animations and JavaScript drive the glowing eyes, energy pulses, binary glitches, randomized effects, and subtle motion.
-
-The result is a lightweight animation that runs entirely in the browser without external libraries or frameworks.
+Rather than showcasing an entire website, this repository focuses on the craftsmanship behind a single animated character—layered artwork, atmospheric composition, lightweight browser animation, and responsive front-end implementation.
 
 ---
 
-## Technologies
+## Design Intent
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
+Trash Fox is presented as a self-contained digital exhibit rather than a webpage component.
 
----
+By extracting the character from its original environment, the focus shifts entirely to the layered animation, subtle motion, and atmospheric composition.
 
-## Features
-
-- Layered PNG composition
-- CSS keyframe animations
-- Randomized JavaScript animation timing
-- Animated glow effects
-- Binary glitch overlays
-- Responsive layout
-- Self-contained project with local assets
+The result extends beyond interface design, focusing instead on bringing a digital character to life through lightweight front-end techniques.
 
 ---
 
-## Project Goals
+## Engineering Notes
 
-This repository demonstrates how a production animation can be extracted from a larger application and transformed into an independent exhibit while preserving its visual behavior and presentation.
+- Extracted from a production Shopify theme.
+- Converted into a standalone browser animation.
+- Localized all assets.
+- Removed framework dependencies.
+- Preserved original animation behavior.
+- Responsive layout retained.
+- Published as an independent portfolio artifact.
 
-The project intentionally retains the original animation architecture while removing dependencies on the surrounding Shopify theme.
+---
+
+## Animation Preview
+
+The animation below was recorded directly from the standalone browser version contained in this repository.
+
+▶ **[View the MP4](trash-fox-MP4.mp4)**
+
+---
+
+## Live Demo
+
+Experience the live browser version here:
+
+**https://tsuki-cruz.github.io/trash-fox-animation/**
+
+The animation runs entirely in HTML, CSS, and JavaScript using locally referenced assets.
+
+No frameworks, build process, or external dependencies are required.
+
+If you'd like to explore the source locally:
+
+```bash
+git clone https://github.com/tsuki-cruz/trash-fox-animation.git
+cd trash-fox-animation
+```
+
+Then simply open **index.html** in your browser.
 
 ---
 
 ## Repository Contents
 
-```
-index.html
-fox_base.png
-eye_left_glow.png
-eye_right_glow.png
-spark_chest.png
-spark_chest_glow.png
-spark_lower_body.png
-spark_lower_body_glow.png
-spark_tail.png
-spark_tail_glow.png
-```
+- `index.html` – Standalone animation
+- `fox_base.png` – Character base artwork
+- Glow layers
+- Spark layers
+- Full-resolution exhibit image
+- Demonstration MP4
 
 ---
 
-## Preview
+## Closing
 
-*(Insert animation preview or MP4 here.)*
+This repository documents the extraction of a production animation into a portable exhibit while preserving its original presentation and behavior.
 
----
-
-## Related Project
-
-This animation originated as part of the **Tsuki Cruz** project.
+It serves as both a technical reference and a portfolio piece demonstrating how layered digital artwork can be transformed into a lightweight, interactive browser experience.
