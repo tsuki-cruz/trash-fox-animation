@@ -40,7 +40,7 @@ The result extends beyond interface design, focusing instead on bringing a digit
 
 The animation below was recorded directly from the standalone browser version contained in this repository.
 
-▶ **[View the MP4](trash-fox-MP4.mp4)**
+▶ **[View the GIF](trash-fox-gif.gif)**
 
 ---
 
@@ -62,17 +62,6 @@ cd trash-fox-animation
 ```
 
 Then simply open **index.html** in your browser.
-
----
-
-## Repository Contents
-
-- `index.html` – Standalone animation
-- `fox_base.png` – Character base artwork
-- Glow layers
-- Spark layers
-- Full-resolution exhibit image
-- Demonstration MP4
 
 ---
 
