@@ -1,0 +1,410 @@
+<style>
+
+  html,
+  body {
+  margin: 0;
+}
+
+/* =========================
+   SECTION
+   ========================= */
+.tc-signal-section{
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      #f2f2f0 0%,
+      #f2f2f0 25%,
+      #ececea 35%,
+      #f3f3f1 43%,
+      #d7d8d9 48%,
+      #8b8e95 63%,
+      #2e3138 78%,
+      #05070b 88%,
+      #151515 100%
+    );
+}
+
+/* =========================
+   FOX WRAP
+   ========================= */
+ 
+.tc-fox-wrap{
+  position: absolute;
+  right: 12%;
+  bottom: 2%;
+  width: clamp(340px, 46vw, 820px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.tc-fox-wrap::after{
+  content: "0110 1101 1010 0011";
+  position: absolute;
+  right: 10%;
+  top: 18%;
+  z-index: 20;
+
+  font-family: monospace;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: rgba(92,255,225,.65);
+  text-shadow: 0 0 8px rgba(92,255,225,.55);
+
+  opacity: 0;
+  pointer-events: none;
+
+  animation: tcFoxBinaryGlitch 9s infinite;
+}
+
+@keyframes tcFoxBinaryGlitch{
+  0%, 80%, 100%{
+    opacity: 0;
+    transform: translate(0,0);
+  }
+
+  83%{
+    opacity: .85;
+    transform: translate(-8px,2px);
+  }
+
+  85%{
+    opacity: 0;
+  }
+
+  88%{
+    opacity: .55;
+    transform: translate(6px,-3px);
+  }
+
+  90%{
+    opacity: 0;
+  }
+}
+
+.tc-fox-glitch{
+  position:absolute;
+  z-index:30;
+  font-family:monospace;
+  font-size:13px;
+  letter-spacing:.16em;
+  pointer-events:none;
+  opacity:0;
+  text-shadow:
+    0 0 8px currentColor,
+    0 0 18px currentColor;
+  animation:tcFoxGlitchBits 11s infinite;
+}
+
+.tc-fox-glitch.g2{ top:7%; left:10%; color:rgba(145,45,55,.82); }
+.tc-fox-glitch.g3{ top:85%; left:58%; color:rgba(160,92,48,.78); animation-delay:.22s; }
+.tc-fox-glitch.g4{ top:70%; left:3%; color:rgba(110,165,90,.72); animation-delay:.21s; }
+
+.tc-fox-glitch.g5{ top:28%; left:6%; color:rgba(8,12,18,.92); animation-delay:21s; }
+.tc-fox-glitch.g7{ top:85%; left:2%; color:rgba(25,35,48,.86); animation-delay:.22s; }
+.tc-fox-glitch.g8{ top:90%; left:50%; color:rgba(45,55,76,.82); animation-delay:.21s; }
+
+@keyframes tcFoxGlitchBits{
+  0%, 72%, 100%{
+    opacity:0;
+    transform:translate(0,0) skewX(0deg) scaleX(1);
+  }
+
+  73%{
+    opacity:1;
+    transform:translate(-18px,2px) skewX(-20deg) scaleX(1.15);
+  }
+
+  74%{ opacity:0; }
+
+  75%{
+    opacity:1;
+    transform:translate(12px,-2px) skewX(16deg) scaleX(.9);
+  }
+
+  76%{ opacity:0; }
+
+  77%{
+    opacity:1;
+    transform:translate(-8px,1px) skewX(-10deg) scaleX(1.05);
+  }
+
+  78%{ opacity:0; }
+}
+
+.tc-fox-layer{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fox-base{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+.spark-chest{ filter: brightness(1.12); }
+.spark-lower{ filter: brightness(1.00); }
+.spark-tail{ filter: brightness(0.92); }
+
+.tc-fox-wrap.is-active .fox-base{
+  animation: tcFoxBodyPulse 3.2s ease-out forwards;
+}
+
+.tc-fox-wrap.low-power.is-active .fox-base{
+  animation: tcFoxBodyPulseLow 3.1s ease-out forwards;
+}
+
+@keyframes tcFoxBodyPulse{
+  0%   { filter: brightness(1) saturate(1); }
+  20%  { filter: brightness(1.15) saturate(1.12); }
+  45%  { filter: brightness(1.45) saturate(1.35); }
+  75%  { filter: brightness(1.18) saturate(1.10); }
+  100% { filter: brightness(1) saturate(1); }
+}
+
+@keyframes tcFoxBodyPulseLow{
+  0%   { filter: brightness(1) saturate(1); }
+  20%  { filter: brightness(1.10) saturate(1.08); }
+  45%  { filter: brightness(1.30) saturate(1.20); }
+  75%  { filter: brightness(1.12) saturate(1.06); }
+  100% { filter: brightness(1) saturate(1); }
+}
+
+.tc-fox-wrap.is-active .eye-right{
+  animation: tcEyeRight 1.2s ease-out 0.75s forwards;
+}
+
+.tc-fox-wrap.is-active .eye-left{
+  animation: tcEyeLeft 1.25s ease-out 1.15s forwards;
+}
+
+@keyframes tcEyeRight{
+  0%   { opacity: 0; filter: brightness(1); }
+  18%  { opacity: 0.95; filter: brightness(1.6); }
+  45%  { opacity: 0.78; filter: brightness(1.35); }
+  72%  { opacity: 0.72; filter: brightness(1.22); }
+  100% { opacity: 0; filter: brightness(1); }
+}
+
+@keyframes tcEyeLeft{
+  0%   { opacity: 0; filter: brightness(1); }
+  20%  { opacity: 0.82; filter: brightness(1.45); }
+  48%  { opacity: 0.68; filter: brightness(1.25); }
+  74%  { opacity: 0.62; filter: brightness(1.16); }
+  100% { opacity: 0; filter: brightness(1); }
+}
+
+.tc-fox-wrap.is-active .spark-chest{
+  animation: tcSpark 0.38s ease-out 1.75s forwards;
+}
+.tc-fox-wrap.is-active .glow-chest{
+  animation: tcGlow 0.9s ease-out 1.82s forwards;
+}
+
+.tc-fox-wrap.is-active .spark-lower{
+  animation: tcSpark 0.38s ease-out 2.30s forwards;
+}
+.tc-fox-wrap.is-active .glow-lower{
+  animation: tcGlow 0.9s ease-out 2.37s forwards;
+}
+
+.tc-fox-wrap.is-active .spark-tail{
+  animation: tcSpark 0.36s ease-out 2.90s forwards;
+}
+.tc-fox-wrap.is-active .glow-tail{
+  animation: tcGlow 1s ease-out 2.97s forwards;
+}
+
+.tc-fox-wrap.variant-b.is-active .spark-lower{
+  animation: tcSpark 0.40s ease-out 1.78s forwards;
+}
+.tc-fox-wrap.variant-b.is-active .glow-lower{
+  animation: tcGlow 0.95s ease-out 1.86s forwards;
+}
+.tc-fox-wrap.variant-b.is-active .spark-chest{
+  animation: tcSpark 0.34s ease-out 2.28s forwards;
+}
+.tc-fox-wrap.variant-b.is-active .glow-chest{
+  animation: tcGlow 0.82s ease-out 2.34s forwards;
+}
+.tc-fox-wrap.variant-b.is-active .spark-tail{
+  animation: tcSpark 0.36s ease-out 2.92s forwards;
+}
+.tc-fox-wrap.variant-b.is-active .glow-tail{
+  animation: tcGlow 1s ease-out 3.00s forwards;
+}
+
+.tc-fox-wrap.variant-c.is-active .spark-chest{
+  animation: tcSpark 0.44s ease-out 1.72s forwards;
+}
+.tc-fox-wrap.variant-c.is-active .glow-chest{
+  animation: tcGlow 1s ease-out 1.80s forwards;
+}
+.tc-fox-wrap.variant-c.is-active .spark-lower{
+  animation: tcSpark 0.34s ease-out 2.34s forwards;
+}
+.tc-fox-wrap.variant-c.is-active .glow-lower{
+  animation: tcGlow 0.82s ease-out 2.40s forwards;
+}
+.tc-fox-wrap.variant-c.is-active .spark-tail{
+  animation: tcSpark 0.34s ease-out 3.18s forwards;
+}
+.tc-fox-wrap.variant-c.is-active .glow-tail{
+  animation: tcGlow 0.92s ease-out 3.25s forwards;
+}
+
+.tc-fox-wrap.variant-d.is-active .spark-chest{
+  animation: tcSpark 0.30s ease-out 1.88s forwards;
+}
+.tc-fox-wrap.variant-d.is-active .glow-chest{
+  animation: tcGlow 0.78s ease-out 1.94s forwards;
+}
+.tc-fox-wrap.variant-d.is-active .spark-lower{
+  animation: tcSpark 0.40s ease-out 2.42s forwards;
+}
+.tc-fox-wrap.variant-d.is-active .glow-lower{
+  animation: tcGlow 0.95s ease-out 2.50s forwards;
+}
+.tc-fox-wrap.variant-d.is-active .spark-tail{
+  animation: tcSpark 0.42s ease-out 2.98s forwards;
+}
+.tc-fox-wrap.variant-d.is-active .glow-tail{
+  animation: tcGlow 1.05s ease-out 3.06s forwards;
+}
+
+.tc-fox-wrap.no-tail .spark-tail,
+.tc-fox-wrap.no-tail .glow-tail{
+  display: none;
+}
+
+@keyframes tcSpark{
+  0%   { opacity: 0; filter: brightness(1); }
+  18%  { opacity: 0.95; filter: brightness(2.2) saturate(1.4); }
+  35%  { opacity: 1; filter: brightness(2.6) saturate(1.6); }
+  60%  { opacity: 0.4; filter: brightness(1.4) saturate(1.2); }
+  100% { opacity: 0; filter: brightness(1); }
+}
+
+@keyframes tcGlow{
+  0%   { opacity: 0; filter: brightness(1); }
+  35%  { opacity: 0.9; filter: brightness(1.22); }
+  75%  { opacity: 0.42; filter: brightness(1.08); }
+  100% { opacity: 0; filter: brightness(1); }
+}
+
+@media (max-width: 749px){
+ 
+  .tc-fox-wrap{
+    right: 0;
+    bottom: 0;
+    width: clamp(220px, 70vw, 460px);
+  }
+
+  .fox-base{
+    opacity: 0.85;
+  }
+}
+</style>
+
+<section class="tc-signal-section">
+
+  <div class="tc-fox-wrap" id="tcFoxWrap">
+    
+    <span class="tc-fox-glitch g2" aria-hidden="true">__ __ ______----___--</span>
+    <span class="tc-fox-glitch g3" aria-hidden="true">1010 | 0011 0000000</span>
+    <span class="tc-fox-glitch g4" aria-hidden="true">| | 0101 /</span>
+
+   
+    <span class="tc-fox-glitch g2" aria-hidden="true">1010 0011 1111 1111 1010 000</span>
+    <span class="tc-fox-glitch g3" aria-hidden="true">0011 0100 010101010101</span>
+    <span class="tc-fox-glitch g4" aria-hidden="true">0101 1100 00000111111</span>
+
+    <span class="tc-fox-glitch g5" aria-hidden="true">_____|__--___|____|''''|______--_____--______|''|_______</span>
+    <span class="tc-fox-glitch g7" aria-hidden="true">||||</span>
+    <span class="tc-fox-glitch g8" aria-hidden="true">\\\\/_/_/_/___|||||</span>
+
+    
+
+    <img class="tc-fox-layer fox-base" src="fox_base.png" alt="">
+    <img class="tc-fox-layer eye-right" src="eye_right_glow.png" alt="">
+    <img class="tc-fox-layer eye-left" src="eye_left_glow.png" alt="">
+    <img class="tc-fox-layer spark-chest" src="spark_chest.png" alt="">
+    <img class="tc-fox-layer glow-chest" src="spark_chest_glow.png" alt="">
+    <img class="tc-fox-layer spark-lower" src="spark_lower_body.png" alt="">
+    <img class="tc-fox-layer glow-lower" src="spark_lower_body_glow.png" alt="">
+    <img class="tc-fox-layer spark-tail" src="spark_tail.png" alt="">
+    <img class="tc-fox-layer glow-tail" src="spark_tail_glow.png" alt="">
+  </div>
+
+</section>
+
+<script>
+(function(){
+  const fox = document.getElementById('tcFoxWrap');
+  if (!fox || fox.dataset.initialized === 'true') return;
+  fox.dataset.initialized = 'true';
+
+  const variants = ['variant-a', 'variant-b', 'variant-c', 'variant-d'];
+
+  function randomDelay(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function randomItem(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function clearBehaviorClasses(){
+    fox.classList.remove(
+      'is-active',
+      'variant-a',
+      'variant-b',
+      'variant-c',
+      'variant-d',
+      'no-tail',
+      'low-power'
+    );
+  }
+
+  function scheduleNext(){
+    const delay = randomDelay(6500, 10500);
+    setTimeout(runSequence, delay);
+  }
+
+  function runSequence(){
+    clearBehaviorClasses();
+
+    fox.classList.add(randomItem(variants));
+
+    if (Math.random() < 0.22){
+      fox.classList.add('no-tail');
+    }
+
+    if (Math.random() < 0.18){
+      fox.classList.add('low-power');
+    }
+
+    requestAnimationFrame(() => {
+      fox.classList.add('is-active');
+    });
+
+    setTimeout(() => {
+      fox.classList.remove('is-active');
+      fox.classList.remove('no-tail', 'low-power');
+      scheduleNext();
+    }, 4700);
+  }
+
+  scheduleNext();
+})();
+</script>
